@@ -17,7 +17,7 @@ import ges.flash.jclient.obj.IssueInfo;
 public class Operation {
 	String name = "user";
 	String pass = "pass";
-	String url = "https://jira.flash.ru";
+	String url = "https://jira.domain.ru";
 
 	public ges.flash.jclient.obj.IssueInfo getInfo(Issue issue) {
 		IssueInfo iss = new IssueInfo();
