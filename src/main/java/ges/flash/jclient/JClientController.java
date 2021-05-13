@@ -69,9 +69,9 @@ public class JClientController extends HttpServlet {
 
 		Hashtable env = new Hashtable();
 		env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-		env.put(Context.PROVIDER_URL, "ldap://10.221.12.3:389");
+		env.put(Context.PROVIDER_URL, "ldap://ip:389");
 		env.put(Context.SECURITY_AUTHENTICATION, "simple");
-		env.put(Context.SECURITY_PRINCIPAL, request.getParameter("username") + "@" + "flash.lan");
+		env.put(Context.SECURITY_PRINCIPAL, request.getParameter("username") + "@" + "domain.lan");
 		env.put(Context.SECURITY_CREDENTIALS, request.getParameter("password"));
 
 		LdapContext ctxGC = null;
@@ -80,7 +80,7 @@ public class JClientController extends HttpServlet {
 		try {
 			ctxGC = new InitialLdapContext(env, null);
 			// OU=Holding,DC=flash,DC=lan
-			NamingEnumeration answer = ctxGC.search("OU=Holding,DC=flash,DC=lan", searchFilter, searchCtls);
+			NamingEnumeration answer = ctxGC.search("OU=user,DC=domain,DC=lan", searchFilter, searchCtls);
 			while (answer.hasMoreElements()) {
 				SearchResult sr = (SearchResult) answer.next();
 				Attributes attrs = sr.getAttributes();
@@ -116,9 +116,9 @@ public class JClientController extends HttpServlet {
 
 	}
 
-	String name = "helpdesk";
-	String pass = "Desk+007Ha";
-	String url = "https://jira.flash.ru";
+	String name = "user";
+	String pass = "pass";
+	String url = "https://jira.domain.ru";
 
 	@RequestMapping(path = "/error", method = RequestMethod.POST)
 	protected void doError(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -225,12 +225,12 @@ public class JClientController extends HttpServlet {
 							+
 							"<br>" + "\r\n" +
 							"<br>" + "\r\n"
-							+ "<br>Посмотреть ваши заявки можно на странице \"Список Обращений\" : <a href=\"http://help.flash.ru\">ссылка</a>";
+							+ "<br>Посмотреть ваши заявки можно на странице \"Список Обращений\" : <a href=\"http://help.domain.ru\">ссылка</a>";
 					ExchangeClient client = new ExchangeClient.ExchangeClientBuilder().hostname("mail1.flash.ru")
 							.exchangeVersion(ExchangeVersion.Exchange2010_SP2)
-							.domain("flash.ru")
-							.username("jira")
-							.password("1gf&Pt#5")
+							.domain("domain.ru")
+							.username("user")
+							.password("pass")
 							.recipientTo(p.getIssue().getFields().getCustomfield_10301() + "")
 							.subject(p.getIssue().getKey() + " - HelpDesk - " + p.getIssue().getFields().getSummary() + " - новое событие")
 							.message(bodyMessage).build();
@@ -252,12 +252,12 @@ public class JClientController extends HttpServlet {
 							"<br> <strong>Статус: </strong>"+ rez + "\r\n" +
 							"<br>" + "\r\n" +
 							"<br>" + "\r\n"
-							+ "<br>Посмотреть ваши заявки можно на странице \"Список Обращений\" : <a href=\"http://help.flash.ru\">ссылка</a>";
+							+ "<br>Посмотреть ваши заявки можно на странице \"Список Обращений\" : <a href=\"http://help.domain.ru\">ссылка</a>";
 					ExchangeClient client = new ExchangeClient.ExchangeClientBuilder().hostname("mail1.flash.ru")
 							.exchangeVersion(ExchangeVersion.Exchange2010_SP2)
-							.domain("flash.ru")
-							.username("jira")
-							.password("1gf&Pt#5")
+							.domain("domain.ru")
+							.username("user")
+							.password("pass")
 							.recipientTo(p.getIssue().getFields().getCustomfield_10301() + "")
 							.subject(p.getIssue().getKey() + " - HelpDesk - " + p.getIssue().getFields().getSummary() + " - новое событие")
 							.message(bodyMessage)
