@@ -69,35 +69,6 @@ public class JiraClient {
 	    return issueClient.createIssue(newIssue).claim().getKey();
 	}
 	
-	
-	
-/**	public boolean getAttachmentFromIssue(String contentURI, String fullfilename) throws IOException {
-        
-		CloseableHttpClient httpclient = HttpClients.createDefault();
-        
-        try {
-            HttpGet httpget = new HttpGet(contentURI);
-            httpget.setHeader("Authorization", "Basic "+jira_attachment_authentication);
-                        
-            System.out.println("executing request " + httpget.getURI());
 
-            CloseableHttpResponse response = httpclient.execute(httpget);
-            
-            int status = response.getStatusLine().getStatusCode();
-            if (status &gt;=200 &amp;&amp; status &lt; 300) {
-            	HttpEntity entity = response.getEntity();
-            	if (entity.isStreaming()) {
-            		byte data[] = EntityUtils.toByteArray(entity);
-            		FileOutputStream fout = new FileOutputStream(new File(fullfilename));
-            		fout.write(data);
-            		fout.close();
-            	}
-            }
-		} finally {
-            httpclient.close();
-        }
-        
-        return true;
-	}**/
 
 }
