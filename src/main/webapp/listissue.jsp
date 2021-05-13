@@ -1,4 +1,3 @@
-
 <%@page import="ges.flash.jclient.utils.Operation"%>
 <%@page import="com.mashape.unirest.http.exceptions.UnirestException"%>
 <%@page import="org.json.JSONObject"%>
@@ -84,13 +83,13 @@
 	<div class="right"
 		style="overflow-x: hidden; overflow-y: auto; text-align: justify;">
 		<%
-		String name = "helpdesk";
-		String pass = "Desk+007Ha";
+		String name = "user";
+		String pass = "pass";
 		String url = "https://jira.flash.ru";
 		if (!user.isEmpty() & !user.equals("Не заполненное поле")) {
 			JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
 			URI uri = new URI(url);
-			JiraRestClient client = factory.createWithBasicHttpAuthentication(uri, "helpdesk", "Desk+007Ha");
+			JiraRestClient client = factory.createWithBasicHttpAuthentication(uri, "user", "pass");
 			String start = "https://jira.flash.ru//rest/api/2/issue/";
 			String finish = "/comment?orderBy=-created&maxResults=1";
 			// Invoke the JRJC Client
