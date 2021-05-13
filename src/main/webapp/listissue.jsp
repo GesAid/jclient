@@ -85,7 +85,7 @@
 		<%
 		String name = "user";
 		String pass = "pass";
-		String url = "https://jira.flash.ru";
+		String url = "https://jira.domain.ru";
 		if (!user.isEmpty() & !user.equals("Не заполненное поле")) {
 			JiraRestClientFactory factory = new AsynchronousJiraRestClientFactory();
 			URI uri = new URI(url);
