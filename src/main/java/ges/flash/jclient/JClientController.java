@@ -226,7 +226,7 @@ public class JClientController extends HttpServlet {
 							"<br>" + "\r\n" +
 							"<br>" + "\r\n"
 							+ "<br>Посмотреть ваши заявки можно на странице \"Список Обращений\" : <a href=\"http://help.domain.ru\">ссылка</a>";
-					ExchangeClient client = new ExchangeClient.ExchangeClientBuilder().hostname("mail1.flash.ru")
+					ExchangeClient client = new ExchangeClient.ExchangeClientBuilder().hostname("mail.domain.ru")
 							.exchangeVersion(ExchangeVersion.Exchange2010_SP2)
 							.domain("domain.ru")
 							.username("user")
@@ -253,7 +253,7 @@ public class JClientController extends HttpServlet {
 							"<br>" + "\r\n" +
 							"<br>" + "\r\n"
 							+ "<br>Посмотреть ваши заявки можно на странице \"Список Обращений\" : <a href=\"http://help.domain.ru\">ссылка</a>";
-					ExchangeClient client = new ExchangeClient.ExchangeClientBuilder().hostname("mail1.flash.ru")
+					ExchangeClient client = new ExchangeClient.ExchangeClientBuilder().hostname("mail.domain.ru")
 							.exchangeVersion(ExchangeVersion.Exchange2010_SP2)
 							.domain("domain.ru")
 							.username("user")
