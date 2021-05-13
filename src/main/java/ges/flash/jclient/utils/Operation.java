@@ -15,8 +15,8 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 import ges.flash.jclient.obj.IssueInfo;
 
 public class Operation {
-	String name = "helpdesk";
-	String pass = "Desk+007Ha";
+	String name = "user";
+	String pass = "pass";
 	String url = "https://jira.flash.ru";
 
 	public ges.flash.jclient.obj.IssueInfo getInfo(Issue issue) {
