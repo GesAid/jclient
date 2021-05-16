@@ -1,12 +1,16 @@
 package ges.flash.jclient;
 
 import java.awt.List;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.joda.time.DateTime;
 
 import com.atlassian.jira.rest.client.api.AuthenticationHandler;
@@ -47,18 +51,24 @@ public class JiraClient {
 	    return URI.create(this.jiraUrl);
 	}
 
-	public String createIssueJira(String summary, String description, String typeIssue) {
+	public String createIssueJira(String summary, String description, String typeIssue, String sip, String userD, String email) {
 	    IssueRestClient issueClient = restClient.getIssueClient();
 	    IssueInputBuilder iib = new IssueInputBuilder();
+	    if(typeIssue.contains("ITS"))
 		iib.setProjectKey("ITSUP");
+	    else
+	    	iib.setProjectKey("ERP");
 		iib.setSummary(summary);
 		iib.setIssueTypeId((long) 10065);
 		iib.setDescription(description);
-	//	iib.setFieldValue("customfield_10014", "TSUP-55");
 		iib.setFieldInput(new FieldInput("customfield_10014", typeIssue));
+		iib.setFieldInput(new FieldInput("customfield_10301", email));
+		iib.setFieldInput(new FieldInput("customfield_10300", userD));
+		iib.setFieldInput(new FieldInput("customfield_10302", sip));
 	    IssueInput newIssue = iib.build();
 	    return issueClient.createIssue(newIssue).claim().getKey();
 	}
 	
+
 
 }

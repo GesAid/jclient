@@ -5,9 +5,9 @@
 	float: left;
 	text-align: left;
 	margin: 10px 0 10px 10px;
-	height: 550px;
+	height: 700px;
 	padding: 10px;
-	width: 300px;
+	width: 400px;
 	display: inline;
 	border-bottom-left-radius: 20px;
 	border-top-left-radius: 20px;
@@ -22,8 +22,8 @@
 	margin: 10px 10px 10px 0;
 	padding: 10px; 
 	display : inline;
-	width: 600px;
-	height: 550px;
+	width: 900px;
+	height: 700px;
 	border-bottom-right-radius: 20px;
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 20px;
@@ -177,15 +177,16 @@ select::-ms-expand {
 
 button {
 	padding: 10px 0;
-	border-width: 0;
+	border-width: 1;
 	display: block;
 	width: 120px;
 	margin: 25px auto 0;
-	background: #60e6c5;
+	background: rgb(255, 128, 0);
 	color: white;
 	font-size: 14px;
 	outline: none;
 	text-transform: uppercase;
+	border-radius: 10px;
 }
 
 @media ( max-width : 600px) {
@@ -214,7 +215,7 @@ button {
   visibility: hidden;
 }
 .custom-file-input::before {
-  content: '📎';
+  content: '+';
   display: inline-block;
   background: linear-gradient(top, #f9f9f9, #e3e3e3);
   border: 1px solid #999;
@@ -233,4 +234,152 @@ button {
 }
 .custom-file-input:active::before {
   background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+
+/* table
+----------------------------------------------------------------------------*/
+.simple-little-table {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000;
+	font-size: 12px;
+
+	background: #fff;
+	margin: auto;
+	border: #fff 1px solid;
+	border-collapse: separate;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 1px 2px #fff;
+	-webkit-box-shadow: 0 1px 2px #fff;
+	box-shadow: 0 1px 2px #fff;
+}
+
+.simple-little-table th {
+	font-weight: bold;
+	padding: 11px 15px 12px 15px;
+	border-top: 1px solid #fafafa;
+	border-bottom: 1px solid #fff;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed),
+		to(#ebebeb));
+	background: -moz-linear-gradient(top, #ededed, #ebebeb);
+}
+
+.simple-little-table th:first-child {
+	text-align: left;
+	padding-left: 10px;
+}
+
+.simple-little-table tr:first-child th:first-child {
+	-moz-border-radius-topleft: 3px;
+	-webkit-border-top-left-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+.simple-little-table tr:first-child th:last-child {
+	-moz-border-radius-topright: 3px;
+	-webkit-border-top-right-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.simple-little-table tr {
+	text-align: left;
+	padding-left: 10px;
+}
+
+.simple-little-table tr td:first-child {
+	text-align: left;
+	padding-left: 10px;
+	border-left: 0;
+}
+
+.simple-little-table tr td {
+	padding: 8px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	border-left: 1px solid #fff;
+	background: #fff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff),
+		to(#fff));
+	background: -moz-linear-gradient(top, #fff, #fff);
+}
+
+.simple-little-table tr:nth-child(even) td {
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8),
+		to(#f6f6f6));
+	background: -moz-linear-gradient(top, #f8f8f8, #f6f6f6);
+}
+
+.simple-little-table tr:last-child td {
+	border-bottom: 0;
+}
+
+.simple-little-table tr:last-child td:first-child {
+	-moz-border-radius-bottomleft: 3px;
+	-webkit-border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.simple-little-table tr:last-child td:last-child {
+	-moz-border-radius-bottomright: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.simple-little-table tr:hover td {
+	color: black;
+	background: #BEBEBE;
+}
+
+.simple-little-table a:link {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.simple-little-table a:visited {
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.simple-little-table a:active, .simple-little-table a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
+
+
+h3 {
+  font-family: 'Merriweather', serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  max-width: 250px;
+  width: 90%;
+  position: relative;
+  display: inline-block;
+  color: #465457;
+}
+
+.d14 h3:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -25px;
+  width: 30px;
+  height: 20px;
+  border-top: 2px solid #fed57b;
+  border-left: 2px solid #fed57b;
+}
+.d14 h3:after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  right: -25px;
+  width: 30px;
+  height: 20px;
+  border-bottom: 2px solid #fed57b;
+  border-right: 2px solid #fed57b;
 }
